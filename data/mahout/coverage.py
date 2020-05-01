@@ -16,8 +16,19 @@ def main(argv):
     input.close()
     newfile.close()
 
+    with open('filtered.txt') as fp, open('formatted.txt', 'w') as newfile:
+        res = ''
+        for line in fp:
+            x, y = line.strip().split()
+            x = x.split(':')[1].split('.')[-1] + ':' + x.split(':')[-1]
+            y = y.split(':')[0].split('.')[-1] + ':' + y.split(':')[-1]
+            res += x + ' ' + y + '\n'
+        newfile.writelines(str(res))
+    fp.close()
+    newfile.close()
+
     d = {}
-    with open("filtered.txt") as input:
+    with open("formatted.txt") as input:
         for line in input:
             (key, val) = line.strip().split(" ")
             if str(key) in d:
