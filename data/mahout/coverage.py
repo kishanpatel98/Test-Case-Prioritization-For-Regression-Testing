@@ -51,4 +51,11 @@ def main(argv):
             #outfile.writelines('{}:{}'.format(key.split('.')[-1], d[key]) + "\n")
     outfile.close()
 
+    with open('faults.txt') as fp, open('faultsformatted.txt', 'w') as outfile:
+        for line in fp:
+            y = line.strip().split('.')
+            x = y[-2] + '.' + y[-1];
+            outfile.writelines(str(x) + "\n")
+    outfile.close()
+
 main(str(sys.argv[1]))
