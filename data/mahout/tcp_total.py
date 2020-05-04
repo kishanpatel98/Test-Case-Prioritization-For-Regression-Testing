@@ -29,9 +29,11 @@ def main(argv):
 
     input.close();
 
-    #print(str(arr))
-
-    print(d.keys())
+    # for x in arr:
+    #     for idx, k in enumerate(d):
+    #         if (x in d[k]):
+    #             print(idx)
+    #             break
 
     #print(sum)
 
